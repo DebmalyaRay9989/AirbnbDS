@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../Upgrad Case Study/CaseStudy/Drug_classification"
+		},
+		{
+			"path": "../../../Upgrad Case Study/CaseStudy/DailyWebsiteVisitors"
+		},
+		{
+			"path": "../../mlproject-main/mlproject-main"
+		},
+		{
+			"path": "../../../Upgrad Case Study/CaseStudy/Predict_Book_Price"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
