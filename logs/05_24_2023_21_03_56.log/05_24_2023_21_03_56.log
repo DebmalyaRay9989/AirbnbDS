@@ -1,0 +1,9 @@
+[ 2023-05-24 21:03:56,906 ] 224 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.2:9090
+[ 2023-05-24 21:03:56,906 ] 224 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-05-24 21:04:00,650 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 21:04:00] "GET /predictdata HTTP/1.1" 200 -
+[ 2023-05-24 21:04:00,728 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 21:04:00] "[33mGET /css/materialize.min.css HTTP/1.1[0m" 404 -
+[ 2023-05-24 21:04:40,253 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 21:04:40] "GET /predictdata HTTP/1.1" 200 -
+[ 2023-05-24 21:04:40,337 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 21:04:40] "[33mGET /css/materialize.min.css HTTP/1.1[0m" 404 -

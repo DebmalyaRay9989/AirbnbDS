@@ -1,0 +1,66 @@
+[ 2023-05-24 15:09:10,958 ] 224 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.2:9090
+[ 2023-05-24 15:09:10,958 ] 224 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-05-24 15:09:23,963 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 15:09:23] "GET /predictdata HTTP/1.1" 200 -
+[ 2023-05-24 15:10:23,898 ] 1744 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 820, in dispatch_one_batch
+    tasks = self._ready_batches.get(block=False)
+  File "E:\machine_learning\lib\queue.py", line 168, in get
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py", line 22, in predict
+    data_scaled = preprocessor.transform(features)
+  File "E:\machine_learning\lib\site-packages\sklearn\compose\_column_transformer.py", line 748, in transform
+    Xs = self._fit_transform(
+  File "E:\machine_learning\lib\site-packages\sklearn\compose\_column_transformer.py", line 606, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 1041, in __call__
+    if self.dispatch_one_batch(iterator):
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 831, in dispatch_one_batch
+    islice = list(itertools.islice(iterator, big_batch_size))
+  File "E:\machine_learning\lib\site-packages\sklearn\compose\_column_transformer.py", line 609, in <genexpr>
+    X=_safe_indexing(X, column, axis=1),
+  File "E:\machine_learning\lib\site-packages\sklearn\utils\__init__.py", line 376, in _safe_indexing
+    return _pandas_indexing(X, indices, indices_dtype, axis=axis)
+  File "E:\machine_learning\lib\site-packages\sklearn\utils\__init__.py", line 222, in _pandas_indexing
+    return indexer[:, key] if axis else indexer[key]
+  File "E:\machine_learning\lib\site-packages\pandas\core\indexing.py", line 925, in __getitem__
+    return self._getitem_tuple(key)
+  File "E:\machine_learning\lib\site-packages\pandas\core\indexing.py", line 1109, in _getitem_tuple
+    return self._getitem_tuple_same_dim(tup)
+  File "E:\machine_learning\lib\site-packages\pandas\core\indexing.py", line 806, in _getitem_tuple_same_dim
+    retval = getattr(retval, self.name)._getitem_axis(key, axis=i)
+  File "E:\machine_learning\lib\site-packages\pandas\core\indexing.py", line 1153, in _getitem_axis
+    return self._getitem_iterable(key, axis=axis)
+  File "E:\machine_learning\lib\site-packages\pandas\core\indexing.py", line 1093, in _getitem_iterable
+    keyarr, indexer = self._get_listlike_indexer(key, axis)
+  File "E:\machine_learning\lib\site-packages\pandas\core\indexing.py", line 1314, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis)
+  File "E:\machine_learning\lib\site-packages\pandas\core\indexing.py", line 1377, in _validate_read_indexer
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['business'] not in index"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\app.py", line 53, in predict_datapoint
+    results=predict_pipeline.predict(pred_df)
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py", line 28, in predict
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py] line number [22] error message["['business'] not in index"]
+[ 2023-05-24 15:10:23,909 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 15:10:23] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -

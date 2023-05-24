@@ -1,0 +1,58 @@
+[ 2023-05-24 17:40:50,394 ] 224 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.2:9090
+[ 2023-05-24 17:40:50,394 ] 224 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-05-24 17:40:57,859 ] 1744 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py", line 22, in predict
+    data_scaled = preprocessor.transform(features)
+  File "E:\machine_learning\lib\site-packages\sklearn\compose\_column_transformer.py", line 748, in transform
+    Xs = self._fit_transform(
+  File "E:\machine_learning\lib\site-packages\sklearn\compose\_column_transformer.py", line 606, in _fit_transform
+    return Parallel(n_jobs=self.n_jobs)(
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 1044, in __call__
+    while self.dispatch_one_batch(iterator):
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 859, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 777, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+  File "E:\machine_learning\lib\site-packages\joblib\_parallel_backends.py", line 208, in apply_async
+    result = ImmediateResult(func)
+  File "E:\machine_learning\lib\site-packages\joblib\_parallel_backends.py", line 572, in __init__
+    self.results = batch()
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 262, in __call__
+    return [func(*args, **kwargs)
+  File "E:\machine_learning\lib\site-packages\joblib\parallel.py", line 262, in <listcomp>
+    return [func(*args, **kwargs)
+  File "E:\machine_learning\lib\site-packages\sklearn\utils\fixes.py", line 211, in __call__
+    return self.function(*args, **kwargs)
+  File "E:\machine_learning\lib\site-packages\sklearn\pipeline.py", line 876, in _transform_one
+    res = transformer.transform(X)
+  File "E:\machine_learning\lib\site-packages\sklearn\utils\metaestimators.py", line 113, in <lambda>
+    out = lambda *args, **kwargs: self.fn(obj, *args, **kwargs)  # noqa
+  File "E:\machine_learning\lib\site-packages\sklearn\pipeline.py", line 647, in transform
+    Xt = transform.transform(Xt)
+  File "E:\machine_learning\lib\site-packages\sklearn\preprocessing\_encoders.py", line 509, in transform
+    X_int, X_mask = self._transform(
+  File "E:\machine_learning\lib\site-packages\sklearn\preprocessing\_encoders.py", line 142, in _transform
+    raise ValueError(msg)
+ValueError: Found unknown categories [None] in column 2 during transform
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\app.py", line 53, in predict_datapoint
+    results=predict_pipeline.predict(pred_df)
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py", line 28, in predict
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py] line number [22] error message[Found unknown categories [None] in column 2 during transform]
+[ 2023-05-24 17:40:57,902 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 17:40:57] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -

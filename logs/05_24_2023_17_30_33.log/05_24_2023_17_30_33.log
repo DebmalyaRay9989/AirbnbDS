@@ -1,0 +1,29 @@
+[ 2023-05-24 17:30:33,652 ] 224 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://192.168.1.2:9090
+[ 2023-05-24 17:30:33,652 ] 224 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[ 2023-05-24 17:36:24,748 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 17:36:24] "GET /predictdata HTTP/1.1" 200 -
+[ 2023-05-24 17:38:26,595 ] 1744 app - ERROR - Exception on /predictdata [POST]
+Traceback (most recent call last):
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py", line 100, in get_data_as_data_frame
+    "business": [self.business],
+AttributeError: 'CustomData' object has no attribute 'business'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\machine_learning\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\app.py", line 47, in predict_datapoint
+    pred_df=data.get_data_as_data_frame()
+  File "E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py", line 115, in get_data_as_data_frame
+    raise CustomException(e, sys)
+src.exception.CustomException: Error occured in python script name [E:\ML_OOP\mlproject_airbnb\mlproject_airbnb\src\pipeline\predict_pipeline.py] line number [100] error message['CustomData' object has no attribute 'business']
+[ 2023-05-24 17:38:26,614 ] 224 werkzeug - INFO - 127.0.0.1 - - [24/May/2023 17:38:26] "[35m[1mPOST /predictdata HTTP/1.1[0m" 500 -

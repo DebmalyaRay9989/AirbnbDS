@@ -1,0 +1,13 @@
+[ 2023-05-24 13:01:10,395 ] 159 numexpr.utils - INFO - NumExpr defaulting to 4 threads.
+[ 2023-05-24 13:01:13,937 ] 30 root - INFO - Entered the data ingestion method or component
+[ 2023-05-24 13:01:14,171 ] 33 root - INFO - Read the dataset as dataframe
+[ 2023-05-24 13:01:15,562 ] 39 root - INFO - Train test split initiated
+[ 2023-05-24 13:01:17,889 ] 46 root - INFO - Ingestion of the data is completed
+[ 2023-05-24 13:01:18,342 ] 99 root - INFO - Read train and test data completed
+[ 2023-05-24 13:01:18,342 ] 101 root - INFO - Obtaining preprocessing object
+[ 2023-05-24 13:01:18,342 ] 74 root - INFO - Categorical columns: ['City', 'Day', 'room_type']
+[ 2023-05-24 13:01:18,342 ] 75 root - INFO - Numerical columns: ['shared_room', 'private_room', 'person_capacity', 'superhost', 'multiple_rooms', 'business', 'cleanliness_rating', 'guest_satisfaction', 'bedrooms', 'city_center_km', 'metro_distance_km', 'attraction_index', 'normalised_attraction_index', 'restraunt_index', 'normalised_restraunt_index']
+[ 2023-05-24 13:01:18,342 ] 114 root - INFO - Applying preprocessing object on training dataframe and testing dataframe.
+[ 2023-05-24 13:01:19,061 ] 128 root - INFO - Saved preprocessing object.
+[ 2023-05-24 13:01:19,061 ] 35 root - INFO - Split training and test input data
+[ 2023-05-24 15:08:39,352 ] 104 root - INFO - Best found model on both training and testing dataset
