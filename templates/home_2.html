@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Airbnb Price Prediction</title>
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/4a822b1d6a.js"></script>
+</head>
+
+<body>
+    <div class="register_page">
+        <div class="form">
+            <form action="{{url_for('predict')}}" method="POST">
+                City: <input type="text" name='City' placeholder="City"><br>
+               <!-- Price: <input type="text" name='Price' placeholder="Price"><br> -->
+                Day: <input type="text" name='Day' placeholder="Day"><br>
+                Room Type: <input type="text" name='Room Type' placeholder="Room Type"><br>
+                Shared Room: <input type="text" name='Shared Room' placeholder="Shared Room"><br>
+				Private Room: <input type="text" name='Private Room' placeholder="Private Room"><br>
+				Person Capacity: <input type="text" name='Person Capacity' placeholder="Person Capacity"><br>
+				Superhost: <input type="text" name='Superhost' placeholder="Superhost"><br>
+				Multiple Rooms: <input type="text" name='Multiple Rooms' placeholder="Multiple Rooms"><br>
+				Business: <input type="text" name='Business' placeholder="Business"><br>
+				Cleanliness Rating: <input type="text" name='Cleanliness Rating' placeholder="Cleanliness Rating"><br>
+				Guest Satisfaction: <input type="text" name='Guest Satisfaction' placeholder="Guest Satisfaction"><br>
+				Bedrooms: <input type="text" name='Bedrooms' placeholder="Bedrooms"><br>
+				City Center (km): <input type="text" name='City Center (km)' placeholder="City Center (km)"><br>
+				Metro Distance (km): <input type="text" name='Metro Distance (km)' placeholder="Metro Distance (km)"><br>
+				Attraction Index: <input type="text" name='Attraction Index' placeholder="Attraction Index"><br>
+				Normalised Attraction Index: <input type="text" name='Normalised Attraction Index' placeholder="Normalised Attraction Index"><br>
+				Restraunt Index: <input type="text" name='Restraunt Index' placeholder="Restraunt Index"><br>
+				Normalised Restraunt Index: <input type="text" name='Normalised Restraunt Index' placeholder="Normalised Restraunt Index"><br>
+                <input type="submit" value="predict" class="submit">
+            </form>
+            <p> Airbnb Price is: {{data}}</p>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+
