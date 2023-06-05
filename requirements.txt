@@ -8,4 +8,5 @@ xgboost
 Flask
 klib
 scipy
+gunicorn
 -e .
